@@ -129,14 +129,14 @@ function WrapTable({ columns, data, handleReset }) {
           </div>
         </div>
         <div>
-          <Button
+          {/* <Button
             variant="danger"
             className="btn-fill"
             style={{ minWidth: "150px" }}
             onClick={() => {}}
           >
             Delete selected
-          </Button>
+          </Button> */}
         </div>
       </div>
       <style>{`

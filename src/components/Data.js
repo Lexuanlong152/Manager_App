@@ -1,4 +1,4 @@
-const initialRoleList = [
+export const initialRoleList = [
   {
     id: 1,
     roleName: "Admin",
@@ -24,5 +24,30 @@ const initialRoleList = [
     rights: [1, 2],
   },
 ];
-
-export default initialRoleList;
+export const rightData = [
+  {
+    id: 1,
+    rightName: "User Management",
+    description: "User can ....",
+  },
+  {
+    id: 2,
+    rightName: "Role Management",
+    description: "User can ....",
+  },
+  {
+    id: 3,
+    rightName: "Attendance Management",
+    description: "User can ....",
+  },
+  {
+    id: 4,
+    rightName: "Report Management",
+    description: "User can ....",
+  },
+  {
+    id: 5,
+    rightName: "Audit Management",
+    description: "User can ....",
+  },
+];

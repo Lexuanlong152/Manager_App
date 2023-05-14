@@ -1,11 +1,13 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef,} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Validation from "./Validation";
-// import LoginAlert from "./LoginAlert";
 
-function Login() {
+
+function Login(props) {
+  // const onChange=props.onChange;
+  
   const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
@@ -20,7 +22,7 @@ function Login() {
   const [errMsg, setErrMsg] = useState("");
   const [auth, setAuth] = useState(false);
   const [errors, setError] = useState({});
-  // const [alert, setAlert] = useState(false);
+ 
 
   useEffect(() => {
     setErrMsg("");
@@ -33,19 +35,14 @@ function Login() {
       setTypePassword("password");
     }
   };
-  // function AlertDismissibleExample() {
-  //   return (
-  //     <div class="alert alert-danger" role="alert">
-  //       This is a danger alert—check it out!
-  //     </div>
-  //   );
-  // }
 
   const handleSignIn = (e) => {
     e.preventDefault();
     setError(Validation(username, password));
     if (username === acoutUser.acout && password === acoutUser.pass) {
       setAuth(true);
+      // onChange(auth)
+      
     } else {
       alert("Tài khoản ,mật khẩu không chính xác");
       setUsername("");
@@ -59,7 +56,7 @@ function Login() {
       {auth ? (
         navigate("/home")
       ) : (
-        <>
+        <>  
           <Form className="auth-form">
             <div className="auth-form-content">
               <p

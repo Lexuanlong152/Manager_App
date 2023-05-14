@@ -22,7 +22,7 @@ function Header() {
 
   const handleClose = () => setShow(false);
   const handleClickLogoutButton = () => {
-      navigate('/');
+      navigate('/login');
   };
   return (
     <>

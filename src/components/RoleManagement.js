@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import initialRoleList from "./Data";
+import {initialRoleList,rightData} from "./Data";
 
 // react-bootstrap components
 import {
@@ -18,33 +18,7 @@ import {
 
 import RoleTable from "./RoleTable";
 
-const rightData = [
-  {
-    id: 1,
-    rightName: "User Management",
-    description: "User can ....",
-  },
-  {
-    id: 2,
-    rightName: "Role Management",
-    description: "User can ....",
-  },
-  {
-    id: 3,
-    rightName: "Attendance Management",
-    description: "User can ....",
-  },
-  {
-    id: 4,
-    rightName: "Report Management",
-    description: "User can ....",
-  },
-  {
-    id: 5,
-    rightName: "Audit Management",
-    description: "User can ....",
-  },
-];
+
 
 function RoleManagement() {
   const [changeTableFlag, setChangeTableFlag] = useState(false);
@@ -501,7 +475,7 @@ function RoleManagement() {
                     style={{ minWidth: "150px" }}
                     className="btn-fill"
                   >
-                    + Add new role
+                    Add new role
                   </Button>{" "}
                 </div>
 
