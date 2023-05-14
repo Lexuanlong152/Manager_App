@@ -1,13 +1,13 @@
-import { useEffect, useState, useRef,} from "react";
+import { useEffect, useState, useRef , useContext} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Validation from "./Validation";
+import { AuthContext } from "../store";
 
+function Login() {
+  const {auth, loginHandler} = useContext(AuthContext);
 
-function Login(props) {
-  // const onChange=props.onChange;
-  
   const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
@@ -20,9 +20,8 @@ function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [auth, setAuth] = useState(false);
+  // const [auth, setAuth] = useState(false);
   const [errors, setError] = useState({});
- 
 
   useEffect(() => {
     setErrMsg("");
@@ -40,9 +39,9 @@ function Login(props) {
     e.preventDefault();
     setError(Validation(username, password));
     if (username === acoutUser.acout && password === acoutUser.pass) {
-      setAuth(true);
+      // setAuth(true);
       // onChange(auth)
-      
+      loginHandler();
     } else {
       alert("Tài khoản ,mật khẩu không chính xác");
       setUsername("");
@@ -56,7 +55,7 @@ function Login(props) {
       {auth ? (
         navigate("/home")
       ) : (
-        <>  
+        <>
           <Form className="auth-form">
             <div className="auth-form-content">
               <p

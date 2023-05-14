@@ -7,18 +7,18 @@ import "./App.css";
 import ProtectedRoute from "./components/ProtectRouter";
 // import Login from "./components/Login";
 // import UnAuthorize from "./pages/UnAthorize";
+import { useContext } from "react";
+import { AuthContext } from "./store";
 
 function App() {
-  const handleChangeAuth =(auth)=>{
-      console.log(auth)
-  }
+  
 
-  const auth= true;
+  const auth= useContext(AuthContext).auth;
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<LoginLayout onChange={handleChangeAuth} />} />
+        <Route path="/login" element={<LoginLayout  />} />
       </Routes>
       
       <ProtectedRoute auth={auth}>

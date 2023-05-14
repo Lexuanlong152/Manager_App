@@ -2,17 +2,19 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assert/imgs/logo.jfif";
 import { Link,useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
+import { AuthContext } from "../store";
 
 function Header() {
+  const { logoutHandler} = useContext(AuthContext);
   const handleLogout = () => {
-    // window.localStorage.removeItem("accessToken");
+    
     setShow(true);
   };
 
@@ -23,6 +25,8 @@ function Header() {
   const handleClose = () => setShow(false);
   const handleClickLogoutButton = () => {
       navigate('/login');
+      logoutHandler();
+
   };
   return (
     <>
